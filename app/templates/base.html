@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{% block title %}Conversor PostScript (.ps) a PDF{% endblock %}</title>
+    <meta name="description" content="Conversor web local, rápido y seguro de archivos PostScript (.ps / .eps) a PDF con diseño compatible para móviles y escritorio.">
+    
+    <!-- Tailwind CSS Standalone Local (100% Offline) -->
+    <script src="{{ url_for('static', filename='js/tailwind.js') }}"></script>
+    
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Estilos locales y animaciones -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="flex flex-col min-h-full bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+    <!-- Navbar / Header -->
+    <header class="w-full border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg p-1">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
+                        PS <span class="text-brand-400 font-normal">➔</span> PDF
+                    </span>
+                    <span class="text-xs text-slate-400 block -mt-1 hidden sm:block">Conversor PostScript Local</span>
+                </div>
+            </a>
+
+            <!-- Status Badges -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Offline Badge -->
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700/60 shadow-sm" title="Funciona sin conexión a internet">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span class="hidden xs:inline sm:inline">Offline Ready</span>
+                </span>
+
+                <!-- Engine Status Badge -->
+                {% if system_status and system_status.ready %}
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 shadow-sm" title="Motor: {{ system_status.engine }} ({{ system_status.version }})">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span class="font-mono text-[11px] uppercase">{{ system_status.engine }}</span>
+                </span>
+                {% else %}
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-950/80 text-amber-300 border border-amber-800/60 shadow-sm" title="Ghostscript no detectado en PATH">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span class="text-[11px]">Motor no detectado</span>
+                </span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-slate-800/60 bg-slate-950/80 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>Conversor de PostScript a PDF • Puerto 5400 • Flask + Jinja2 + Tailwind Local</p>
+            <p class="text-slate-400 font-mono text-[11px]">Privacidad 100% Local • Sin almacenamiento permanente</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

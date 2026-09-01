@@ -1,0 +1,23 @@
+[Unit]
+Description=PS to PDF Web Converter (Flask + Gunicorn)
+After=network.target
+
+[Service]
+Type=simple
+User={{USER}}
+Group={{GROUP}}
+WorkingDirectory={{APP_DIR}}
+Environment="PATH={{VENV_DIR}}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart={{VENV_DIR}}/bin/gunicorn --workers 3 --bind {{HOST}}:{{PORT}} --max-requests 1000 --max-requests-jitter 50 --timeout 120 --access-logfile - --error-logfile - run:app
+Restart=always
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+# Directivas de seguridad y aislamiento
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
