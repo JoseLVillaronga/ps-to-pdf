@@ -185,5 +185,21 @@
         </div>
     </div>
 
+    <!-- Representative Banner Section -->
+    <div class="w-full mt-8 rounded-2xl overflow-hidden glass-card border border-slate-800/80 shadow-xl group">
+        <div class="relative w-full overflow-hidden">
+            <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="Ilustración representativa de conversión PostScript a PDF" class="w-full h-auto object-cover max-h-64 sm:max-h-72 transform group-hover:scale-102 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex items-end p-4 sm:p-6">
+                <div class="space-y-1">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30">
+                        Motor Ghostscript Vectorial
+                    </span>
+                    <h4 class="text-base sm:text-lg font-bold text-white tracking-tight">Transformación precisa de código PostScript a documento PDF</h4>
+                    <p class="text-xs text-slate-300 hidden sm:block">Procesamiento de trazos, curvas Bézier, fuentes tipográficas embebidas e imágenes EPS con máxima nitidez.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}

@@ -6,6 +6,10 @@
     <title>{% block title %}Conversor PostScript (.ps) a PDF{% endblock %}</title>
     <meta name="description" content="Conversor web local, rápido y seguro de archivos PostScript (.ps / .eps) a PDF con diseño compatible para móviles y escritorio.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    <link rel="alternate icon" href="{{ url_for('converter.favicon') }}">
+
     <!-- Tailwind CSS Standalone Local (100% Offline) -->
     <script src="{{ url_for('static', filename='js/tailwind.js') }}"></script>
     

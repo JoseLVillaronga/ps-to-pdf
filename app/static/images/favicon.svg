@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="psGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+    <linearGradient id="pdfGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="shadow" x="-4" y="-4" width="72" height="72" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background Rounded Rect -->
+  <rect width="64" height="64" rx="16" fill="#0f172a" />
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+
+  <!-- Document Sheet -->
+  <path d="M16 12C16 10.8954 16.8954 10 18 10H38L48 20V50C48 51.1046 47.1046 52 46 52H18C16.8954 52 16 51.1046 16 50V12Z" fill="url(#psGrad)" filter="url(#shadow)" />
+  
+  <!-- Folded Corner -->
+  <path d="M38 10V18C38 19.1046 38.8954 20 40 20H48L38 10Z" fill="#a5b4fc" />
+
+  <!-- Conversion Arrows / PDF Badge -->
+  <rect x="24" y="32" width="28" height="18" rx="5" fill="url(#pdfGrad)" filter="url(#shadow)" />
+  
+  <!-- Text PDF -->
+  <text x="38" y="44" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="900" text-anchor="middle" letter-spacing="0.5">PDF</text>
+  
+  <!-- PS Text on sheet -->
+  <text x="26" y="26" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" text-anchor="middle">PS</text>
+</svg>
