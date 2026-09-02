@@ -227,4 +227,5 @@ Consulta el estado de salud del servidor y la disponibilidad de Ghostscript.
 ## 📜 Licencia y Principios
 
 Desarrollado bajo las **Leyes Universales de Ingeniería de José Luis Villaronga** y el **Modelo Ético Adaptativo (MEA v2.1)**.
-Libre para uso personal, educativo y profesional.
+
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulte el archivo [LICENSE](LICENSE).
